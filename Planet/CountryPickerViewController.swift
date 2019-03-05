@@ -54,7 +54,7 @@ public class CountryPickerViewController: UITableViewController {
         }
     }
     
-    fileprivate dynamic func cancelButtonTapped(_ sender: UIBarButtonItem) {
+    @objc fileprivate dynamic func cancelButtonTapped(_ sender: UIBarButtonItem) {
         delegate?.countryPickerViewControllerDidCancel(self)
     }
     
@@ -87,12 +87,6 @@ public extension CountryPickerViewController {
             let leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: action)
             navigationItem.leftBarButtonItem = leftBarButtonItem
         }
-        
-        searchController.searchResultsUpdater = self
-        searchController.dimsBackgroundDuringPresentation = false
-        searchController.hidesNavigationBarDuringPresentation = false
-        tableView.tableHeaderView = searchController.searchBar
-        definesPresentationContext = true
         
         tableView.tableFooterView = tableFooterView()
     }
